@@ -246,15 +246,30 @@ body {
 .team-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Esto permite que se acomoden hacia abajo en celulares */
+    gap: 2rem; /* Espacio entre las tarjetas */
     margin-top: 3rem;
 }
 
 .team-member {
     text-align: center;
     background-color: var(--bg-gray);
-    padding: 2rem;
+    padding: 2.5rem 1.5rem;
     border-radius: 12px;
+    width: 100%;
     max-width: 300px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px); /* Pequeño efecto al pasar el mouse */
+}
+
+.team-member h4 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
 }
 
 .avatar {
