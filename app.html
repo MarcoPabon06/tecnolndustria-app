@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecnoIndustria S.A.S - Panel de Control Físico</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="login-screen" class="screen active">
+        <div class="login-card">
+            <h1>TecnoIndustria S.A.S</h1>
+            <p>Sistema de Optimización de Procesos Físicos</p>
+            <input type="text" id="username-input" placeholder="Ingresa tu nombre de ingeniero" autocomplete="off">
+            <button onclick="iniciarSesion()">Acceder al Sistema</button>
+        </div>
+    </div>
+
+    <div id="dashboard-screen" class="screen">
+        <nav class="sidebar">
+            <h2 id="welcome-message">Hola, Ingeniero</h2>
+            <ul class="nav-links">
+                <li onclick="mostrarSeccion('calculadoras')" class="active-nav">Calculadoras</li>
+                <li onclick="mostrarSeccion('info-proyecto')">Info del Proyecto</li>
+                <li onclick="cerrarSesion()" class="logout-btn">Salir</li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <section id="calculadoras" class="content-section active-section">
+                <header>
+                    <h2>Control de Variables Físicas</h2>
+                    <p>Seleccione la propiedad que desea calcular o simular.</p>
+                </header>
+                
+                <div class="calculator-grid">
+                    
+                    <div class="calc-card">
+                        <h3>Calor (Energía Térmica)</h3>
+                        <p>Fórmula: Q = m · c · ΔT</p>
+                        <input type="number" id="calor-m" placeholder="Masa (kg)">
+                        <input type="number" id="calor-c" placeholder="Calor Específico (J/kg·°C)">
+                        <input type="number" id="calor-dt" placeholder="Δ Temperatura (°C)">
+                        <button onclick="calcularCalor()">Calcular Q</button>
+                        <div class="result" id="res-calor"></div>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3>Temperatura</h3>
+                        <p>Conversión °F a °C y K</p>
+                        <input type="number" id="temp-f" placeholder="Grados Fahrenheit (°F)">
+                        <button onclick="calcularTemperatura()">Convertir</button>
+                        <div class="result" id="res-temp"></div>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3>Presión</h3>
+                        <p>Fórmula: P = F / A</p>
+                        <input type="number" id="pres-f" placeholder="Fuerza (N)">
+                        <input type="number" id="pres-a" placeholder="Área (m²)">
+                        <button onclick="calcularPresion()">Calcular P</button>
+                        <div class="result" id="res-presion"></div>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3>Caudal Volumétrico</h3>
+                        <p>Fórmula: Q = V / t</p>
+                        <input type="number" id="cv-v" placeholder="Volumen (m³)">
+                        <input type="number" id="cv-t" placeholder="Tiempo (s)">
+                        <button onclick="calcularCaudalVol()">Calcular Q</button>
+                        <div class="result" id="res-cv"></div>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3>Caudal (Área y Vel.)</h3>
+                        <p>Fórmula: Q = A · v</p>
+                        <input type="number" id="ca-a" placeholder="Área (m²)">
+                        <input type="number" id="ca-v" placeholder="Velocidad (m/s)">
+                        <button onclick="calcularCaudalArea()">Calcular Q</button>
+                        <div class="result" id="res-ca"></div>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3>Energía Potencial</h3>
+                        <p>Fórmula: Ep = m · g · h</p>
+                        <input type="number" id="ep-m" placeholder="Masa (kg)">
+                        <input type="number" id="ep-h" placeholder="Altura (m)">
+                        <button onclick="calcularEnergiaPotencial()">Calcular Ep</button>
+                        <div class="result" id="res-ep"></div>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3>Eficiencia Energética</h3>
+                        <p>Fórmula: η = (E.útil / E.total) × 100</p>
+                        <input type="number" id="ee-u" placeholder="Energía Útil (J)">
+                        <input type="number" id="ee-t" placeholder="Energía Total (J)">
+                        <button onclick="calcularEficiencia()">Calcular η</button>
+                        <div class="result" id="res-ee"></div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="info-proyecto" class="content-section">
+                <header>
+                    <h2>Información del Proyecto</h2>
+                </header>
+                <div class="info-content">
+                    <h3>Problema que soluciona</h3>
+                    <p>Tecnolndustria S.A.S. enfrenta fallas en procesos, desperdicio de recursos y altos costos operativos debido a dificultades en el cálculo y control de variables como temperatura, presión y caudales.</p>
+                    
+                    <h3>Principios físicos utilizados</h3>
+                    <p>Se aplican principios de termodinámica (calor y temperatura), mecánica de fluidos (presión y caudales) y mecánica clásica (energía y eficiencia).</p>
+                    
+                    <h3>Propuesta de Valor</h3>
+                    <p>Una herramienta de software unificada que permite a los operarios realizar cálculos rápidos y precisos en tiempo real, optimizando recursos y facilitando la toma de decisiones en el sector productivo.</p>
+
+                    <h3>Equipo de Trabajo</h3>
+                    <p>Desarrollado por el equipo de Análisis y Desarrollo de Software (ADSO):</p>
+                    <li>Nicolás Gil Sanchez</li>
+                    <li>Brayan Ropero</li>
+                    <li>Marco Pabón</li>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
